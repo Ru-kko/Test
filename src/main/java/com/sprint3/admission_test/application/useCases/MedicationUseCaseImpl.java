@@ -59,8 +59,8 @@ public class MedicationUseCaseImpl implements IMedicationUseCase {
     private void validate(Medication medication) {
         if (
                 medication == null ||
-                medication.getName().length() <= 5 ||
-                medication.getName().length() >= 100
+                medication.getName().length() < 5 ||
+                medication.getName().length() > 100
         ) {
             throw new BadRequestException("Category name length must be either 5 to 100");
         }
