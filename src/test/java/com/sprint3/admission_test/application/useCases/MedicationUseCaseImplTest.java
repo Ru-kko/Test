@@ -58,13 +58,13 @@ class MedicationUseCaseImplTest {
 
     @Test
     void shouldCreateOnValidEntity() {
-        when(categoryRepository.findByCategoryName(eq("Valid"))).thenReturn(Optional.of(Category.builder().id(1l).name("Valid").build()));
+        when(categoryRepository.findByCategoryName(eq("Valids"))).thenReturn(Optional.of(Category.builder().id(1l).name("Valid").build()));
         when(medicationRepository.save(any())).thenReturn(Medication.builder().id(19l).build());
 
         Medication res = service.createMedication("test",
                 "Valid Response with more than 30 characters",
                 new BigDecimal(100),
-                "Valid",
+                "Valids",
                 LocalDate.now());
 
         verify(medicationRepository, times(1)).save(any());
